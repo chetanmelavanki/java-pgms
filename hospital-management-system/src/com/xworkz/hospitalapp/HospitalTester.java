@@ -49,23 +49,50 @@ public class HospitalTester {
 		System.out.println(hospital.createPatientDetails(dto));
 		
 		}
-	//accesing all details
-	System.out.println();
-	hospital.getAllpatientDetails();
-	
-	System.out.println();
-	
-	//access only id
-	System.out.println("serach for available ID");
-	hospital.getPatientId(scanner.nextInt());
-	
-	System.out.println();
-	
-	//access only patient id by name
-	System.out.println("search for ID by Name");
-	hospital.getPatientIdByName(scanner.next());
-	
-
+		
+		
+		  //accesing all details System.out.println(); hospital.getAllpatientDetails();
+		  
+		  System.out.println();
+		  
+		  //access only id System.out.println("serach for available ID");
+		  hospital.getPatientId(scanner.nextInt());
+		  
+		  
+		  
+		  System.out.println();
+		  
+		  //access only gender System.out.println("search for Patient gender"); String
+		  gender1=scanner.next(); hospital.getPatientGender(Gender.valueOf(gender1));
+		  
+		  System.out.println();
+		  
+		  //acces only contact System.out.println("search for contact number");
+		  hospital.getPatientContact(scanner.nextLong());
+		  
+		  System.out.println();
+		  
+		  //access only age System.out.println("search for age");
+		  hospital.getPatientAge(scanner.nextInt());
+		  
+		  System.out.println();
+		  
+		  //access only patient id by name System.out.println("search for ID by Name");
+		  hospital.getPatientIdByName(scanner.next());
+		  
+		  
+		  System.out.println("search for patient name by id");
+		  hospital.getPatientNameById(scanner.nextInt());
+		  
+		  
+		  System.out.println();
+		  System.out.println("search for patient address by name");
+		  hospital.getPatientAddressByName(scanner.next());
+		 
+		
+		System.out.println();
+		System.out.println("search for patient gender by name");
+		hospital.getGenderByName(scanner.next());
 
 	}
 	
