@@ -31,7 +31,7 @@ public class Hospital {
 		
 		}
 		
-		 
+		 //get all detail of patient
 		public void getAllpatientDetails() {
 			System.out.println("inside getAllpatientDetails ()...fetching the data");
 			for (int i = 0; i < patientDTO.length; i++) {
@@ -40,111 +40,193 @@ public class Hospital {
 			System.out.println("end of getpatientDetails");
 			
 		}
-		
-		public int getPatientId(int patientId) {
+		//get only patient id
+		public PatientDTO getPatientById(int patientId) {
+			PatientDTO patient=null;
 			System.out.println("inside getPatientId()");
 			for(int i = 0; i < patientDTO.length; i++) {
 				if(patientDTO[i].getPatientId()==patientId) {
-					System.out.println("patient id :"+patientDTO[i].getPatientId());
+					patient=patientDTO[i];
+					System.out.println(patient);
 				}
 				else {
 					System.out.println("patient id :"+patientId +" is not available");
 				}
 			}
-			return patientId;
+			return patient;
+			
 		}
 		
 		
-		
-		public Gender getPatientGender(Gender patientGender) {
+		//get only patient gender
+		public PatientDTO getPatientByGender(Gender patientGender) {
+			PatientDTO patient=null;
 			System.out.println("inside getPatientByGender()..");
 			for (int i = 0; i < patientDTO.length; i++) {
 				if(patientDTO[i].getGender()==patientGender) {
-					System.out.println("patient gender : " + patientDTO[i].getGender());
+					patient=patientDTO[i];
+					System.out.println(patient);
 				}
 				else {
 					System.out.println("patient gender :" + patientGender+" is not available");
 				}
 			}
-			return patientGender;
+			return patient;
 		}
 		
-		public long getPatientContact(long patientContact) {
+		
+		public PatientDTO getPatientByContact(long patientContact) {
+			PatientDTO patient=null;
 			System.out.println("inside getPatientByGender()..");
 			for (int i = 0; i < patientDTO.length; i++) {
 				if(patientDTO[i].getContactNum()==patientContact) {
-					System.out.println("patient gender : " + patientDTO[i].getContactNum());
+					patient=patientDTO[i];
+					System.out.println(patient);
 				}
 				else {
-					System.out.println("patient gender :" + patientContact+" is not available");
+					System.out.println("patient id  is not available");
 				}
 			}
-			return patientContact;
+			return patient;
+		
 		}
-		public int getPatientAge(int patientAge) {
+		public PatientDTO getPatientByAge(int patientAge) {
+			PatientDTO patient=null;
 			System.out.println("inside getPatientByGender()..");
 			for (int i = 0; i < patientDTO.length; i++) {
-				if(patientDTO[i].getContactNum()==patientAge) {
-					System.out.println("patient gender : " + patientDTO[i].getAge());
+				if(patientDTO[i].getAge()==patientAge) {
+					patient=patientDTO[i];
+					System.out.println(patient);
 				}
 				else {
-					System.out.println("patient gender :" + patientAge+" is not available");
+					System.out.println("patient  :" + patientAge+" is not available");
 				}
 			}
-			return patientAge;
+			return patient;
 		}
 		
-		public String getPatientIdByName(String patientName) {
+		public int getPatientIdByName(String patientName) {
 			System.out.println("inside getPatientIdByName()..");
+			int patientId=0;
+			try {
 			for (int i = 0; i < patientDTO.length; i++) {
 				if(patientDTO[i].getPatientName().equals(patientName)) {
-					System.out.println("patient name:"+patientDTO[i].getPatientName() + "," + "patient ID:"+patientDTO[i].getPatientId());
+					patientId=patientDTO[i].getPatientId();
+					System.out.println(patientDTO[i].getPatientId());
 				}
 				else {
 						System.out.println("patient id :"+patientName+" is not available");
 				}
 			}
-			return patientName;
-		}
-		
-		public int getPatientNameById(int patientId) {
-			System.out.println("inside getPatientIdByName()..");
-			for (int i = 0; i < patientDTO.length; i++) {
-				if(patientDTO[i].getPatientId()==patientId) {
-					System.out.println("patient id:"+patientDTO[i].getPatientId() + "," + "patient name:"+patientDTO[i].getPatientName());
-				}
-				else {
-						System.out.println("patient id :"+patientId+" is not available");
-				}
+			}
+			catch (Exception e) {
+				System.out.println(e.fillInStackTrace());
 			}
 			return patientId;
+			
+		}
+		
+		public String getPatientNameById(int patientId) {
+			String patientName= null ;
+			System.out.println("inside getPatientIdByName()..");
+		try {
+			for (int i = 0; i < patientDTO.length; i++) {
+				if(patientDTO[i].getPatientId()==patientId) {
+					patientName=patientDTO[i].getPatientName();
+					System.out.println(patientDTO[i].getPatientName());
+				}
+				else {
+						System.out.println("patient id is not available");
+				}
+			}
+		}
+			catch (Exception e) {
+				System.out.println(e.fillInStackTrace());
+			}
+			return patientName;
 		}
 		
 		public String getPatientAddressByName(String patientName) {
 			System.out.println("inside getPatientIdByName()..");
+			String patientAddress=null;
+			try {
 			for (int i = 0; i < patientDTO.length; i++) {
 				if(patientDTO[i].getPatientName().equals(patientName)) {
-					System.out.println("patient name:"+patientDTO[i].getPatientName()+ "," +"patient address:"+patientDTO[i].getAddress() );
+					patientAddress=patientDTO[i].getAddress();
+					System.out.println(patientDTO[i].getAddress());
 				}
 				else {
 						System.out.println("patient id :"+patientName+" is not available");
 				}
 			}
+			}
+			catch (Exception e) {
+				System.out.println(e.fillInStackTrace());
+			}
 			return patientName;
 		}
 		
-		public String getGenderByName(String patientName) {
+		public Gender getGenderByName(String patientName) {
 			System.out.println("inside getPatientIdByName()..");
+			Gender gender=null;
+			try {
 			for (int i = 0; i < patientDTO.length; i++) {
 				if(patientDTO[i].getPatientName().equals(patientName)) {
-					System.out.println("patient name:"+patientDTO[i].getPatientName()+ "," +"patient address:"+patientDTO[i].getGender() );
+					gender=patientDTO[i].getGender();
+					System.out.println(patientDTO[i].getGender());
 				}
 				else {
 						System.out.println("patient id :"+patientName+" is not available");
 				}
 			}
-			return patientName;
+			}
+			catch (Exception e) {
+				System.out.println(e.fillInStackTrace());
+			}
+			return gender;
 		}
 		
+		public boolean updateContactNumByPatientName(String patientName,long contactNum) {
+			System.out.println("inside updateContactNumByPatientName()..");
+			boolean isContactNumUpdated=false;
+			for (int i = 0; i < patientDTO.length; i++) {
+				if(patientDTO[i].getPatientName().equals(patientName)) {
+					patientDTO[i].setContactNum(contactNum);
+					isContactNumUpdated=true;
+					System.out.println("updated num:"+contactNum);
+					}
+				else {
+					System.out.println(patientDTO[i].getContactNum()+" num is not updated");
+				}
+			}
+			return isContactNumUpdated;
+			
+		}
+		public boolean deletePatientDetails(String patientName) { 
+		boolean delete = false;
+		try {
+			for (int i = 0; i < patientDTO.length; i++) {
+				if (patientDTO[i].getPatientName().equals(patientName)) { 
+					patientDTO[i] = null; 
+					System.out.println("Patient details are deleted"); 
+					return true;
+		}
+		else {
+			System.out.println("Patient Details dint deleted");
+			}
+
+		}
+	}
+		catch (NullPointerException n) {
+
+		System.out.println("NullPointerException"); 
+		n.fillInStackTrace();
+
+		}
+
+		return delete;
 		
+		
+		
+	}
 }
